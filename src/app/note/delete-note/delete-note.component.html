@@ -1,0 +1,17 @@
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="deleteModalLabel">Delete Note</h3>
+        </div>
+        <div class="modal-body">
+            Are you sure to delete the Note - {{note.title}} ?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="deleteNote(note.id)">Ok</button>
+            <button type="button" class="btn btn-secondary" #closebutton data-bs-dismiss="modal" >Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>

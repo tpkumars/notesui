@@ -1,0 +1,30 @@
+
+<div class="container">
+<div class="row row-cols-3 row-cols-lg-4 g-2 g-lg-3">
+<div class="col btn btn-light">
+    <div class="card btn btn-light">
+        <div class="card-body btn btn-light">
+        <app-add-note></app-add-note>
+        </div>
+    </div>
+</div>
+<div class="col" *ngFor="let note of notesList">
+    <div class="card">
+        <div class="card-header">{{note.title}}
+            <div class="buttonsection">
+                <button mat-icon-button  (click)="editNote(note)" data-bs-toggle="modal" data-bs-target="#editModal"
+                data-backdrop="static" data-keyboard="false"><mat-icon>edit</mat-icon></button>
+                <button mat-fab (click)="deleteNote(note)" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                data-backdrop="static" data-keyboard="false"><mat-icon>delete</mat-icon></button>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{note.noteContent}}</p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<app-edit-note [objNote] = "objNote"></app-edit-note>
+<app-delete-note [note]="objNote" ></app-delete-note>
+

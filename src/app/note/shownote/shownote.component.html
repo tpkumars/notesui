@@ -1,0 +1,51 @@
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" 
+data-bs-target="#exampleModal" (click)="addNote()" data-backdrop="static" data-keyboard="false">
+    Add New Note
+  </button>
+
+
+<div class=""  *ngFor="let note of notesList">
+    <div class="card" (click)="editNote(note)" style="width: 25rem;"data-bs-toggle="modal" data-bs-target="#exampleModal"
+    data-backdrop="static" data-keyboard="false">
+        <div class="form-floating">
+            <input type="text" class="form-control shadow-none" id="noteTitle" placeholder="Title" disabled>
+            <label for="noteTitle">{{note.Title}}</label>
+         </div>
+         <div class="form-floating">
+            <input type="text" class="form-control shadow-none" id="noteTitle" placeholder="Title" disabled>
+             <label for="noteContent">{{note.NoteContent}}</label>
+         </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" [(ngModel)]="id" id="exampleModalLabel">{{modalTitle}}</h3>
+        </div>
+        <div class="modal-body">
+            <!--<form #noteForm="ngForm" >-->
+            <div class="form-floating">
+                <input type="text" class="form-control shadow-none" id="title" placeholder="Title" 
+                name="noteTitle" [(ngModel)]="noteTitle">
+                <label for="title">Title</label>
+             </div>
+             <div class="form-floating">
+                <textarea type="text" class="form-control shadow-none" id="content" placeholder="Your notes" 
+                name="noteContent" [(ngModel)]="noteContent" cols="40" rows="5"></textarea>
+                 <label for="content">Take a note....</label>
+             </div>
+            <!--</form>-->
+        </div>
+        <div class="modal-footer">
+            <p>{{message}}</p>
+            <button type="submit" class="btn btn-primary" (click)="saveNote()">{{addEditButtonText}}</button>
+            <button type="button" class="btn btn-primary" *ngIf="activateDeleteButton" (click)="deleteNote(id)">Delete Note</button>
+            <button type="button" class="btn btn-secondary" #closebutton data-bs-dismiss="modal"(click)="clickClose()">Close</button>
+          </div>
+      </div>
+    </div>
+  </div>

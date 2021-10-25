@@ -1,0 +1,11 @@
+header {
+    position:absolute;
+    background-color: rgb(50, 54, 56);
+    top:0;
+    left:0;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    font-size: 20px;
+    color: white;
+  }

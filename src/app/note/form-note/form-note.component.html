@@ -1,0 +1,30 @@
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <form #noteForm="ngForm" (submit)= "saveNote(noteForm)">
+        <div class="modal-header">
+          <h3 class="modal-title" id="addModalLabel">Add Note</h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-floating">
+                <input type="text" class="form-control shadow-none" id="title" 
+                placeholder="Title" [(ngModel)]="title" name="title" required>
+                <label for="title">Title</label>
+            </div>
+            <div class="form-floating">
+                <textarea type="text" class="form-control shadow-none" id="content" 
+                placeholder="Your notes" cols="40" rows="5" [(ngModel)]="content" name="content" required></textarea>
+                <label for="content">Take a note....</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p>{{message}}</p>
+            <button type="submit" class="btn btn-primary" [disabled]="!noteForm.valid" >Save Note</button>
+            <button type="button" class="btn btn-secondary" (click)="resetForm(noteForm)">Reset</button>
+            <button type="button" class="btn btn-secondary" #closebutton data-bs-dismiss="modal" (click)="closeForm(noteForm)">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,20 @@
+/*@import '~bootstrap/dist/css/bootstrap.min.css';*/
+.bodystyle{
+    position: absolute;
+    width: 99%;
+}
+
+.form-floating{
+    border:0;
+}
+
+input,h5{
+    border: 0;
+}
+
+
+
+.card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+

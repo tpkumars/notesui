@@ -1,0 +1,14 @@
+<!--<header>
+    <h1>{{headerTitle}}</h1>
+
+</header>-->
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand">Notes</a>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #search>
+        <button class="btn btn-outline-success" type="submit" (click)="searchNote(search.value)">Search</button>
+      </form>
+    </div>
+  </nav>

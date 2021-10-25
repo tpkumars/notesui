@@ -1,0 +1,41 @@
+<div *ngIf="objNote!=null">
+<!--<ul>
+  <li>ID: {{objNote.id}}</li>
+  <li>Title: {{objNote.title}}</li>
+  <li>NoteContent: {{objNote.noteContent}}</li>
+  <li>NoteId: {{objNote.noteId}}</li>
+  <li>CreatedDate: {{objNote.createdDate}}</li>
+</ul>
+<app-form-note [noteDataIn]="objNote" ></app-form-note>-->
+
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <form #noteUpdateForm="ngForm">
+      <div class="modal-header">
+        <h3 class="modal-title" id="editModalLabel">Update Note</h3>
+      </div>
+      <div class="modal-body">
+          <div class="form-floating">
+              <input type="text" class="form-control shadow-none" 
+              placeholder="Title" [(ngModel)]="title" [value]="objNote.title" name="title" required>
+              <label for="title"></label>
+          </div>
+          <div class="form-floating">
+              <textarea type="text" class="form-control shadow-none"
+              placeholder="Your notes" cols="40" rows="5" [(ngModel)]="content" [value]="objNote.noteContent" name="content" required></textarea>
+              <label for="content"></label>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <p>{{message}}</p>
+          <button type="submit" class="btn btn-primary" [disabled]="!noteUpdateForm.valid" (click)= "updateNote(noteUpdateForm,objNote)">Save Note</button>
+          <!--<button type="button" class="btn btn-secondary" (click) = deleteNote(objNote)>Delete Note</button>-->
+          <button type="button" class="btn btn-secondary" #closebutton data-bs-dismiss="modal" (click)="closeForm()">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
